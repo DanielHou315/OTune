@@ -12,7 +12,7 @@ OTune is developed by Huaidian Daniel Hou ‘22 at the Haverford School as a Gra
   - [Configure PROS Project](#configure-pros-project)
 - [Use OTune](#use-otune)
 - [Note](#note)
-  - [ros_lib](#ros_lib-(otune_rosserial-dependency))
+  - [ros_lib](#ros_lib)
 - [License](#license)
 
 # OTune Hardware Requirements
@@ -230,7 +230,7 @@ The project requires a few hardware components in order to function properly. In
 
 # Note:
 
-## ros_lib (otune_rosserial dependency)
+## ros_lib
 
 1. otune_rosserial is dependent on ros_lib, the package provided in rosserial to enable communication between the VEX Brain and the ROS system. 
 2. If you are using a different version of ROS (the version tested is ROS Noetic as of June 2022)
