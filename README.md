@@ -12,7 +12,7 @@ OTune is developed by Huaidian Daniel Hou ‘22 at the Haverford School as a Gra
   - [Configure PROS Project](#configure-pros-project)
 - [Use OTune](#use-otune)
 - [Note](#note)
-  - [ros_lib](#ros_lib-tune_rosserial-dependency)
+  - [ros_lib](#ros-lib-tune-rosserial-dependency)
 - [License](#license)
 
 # OTune Hardware Requirements
