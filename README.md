@@ -6,6 +6,14 @@ OTune is developed by Huaidian Daniel Hou ‘22 at the Haverford School as a Gra
 
 # Table of Contents
 - [OTune Hardware Requirements](#otune-hardware-requirements)
+- [Install OTune](#install-otune)
+  - [Environment](#environment)
+  - [Configure Linux and ROS](#configure-linux-and-ros)
+  - [Configure PROS Project](#configure-pros-project)
+- [Use OTune](#use-otune)
+- [Note](#note)
+  - [ros_lib](#ros_lib)
+- [License](#license)
 
 # OTune Hardware Requirements
 
@@ -19,7 +27,7 @@ The project requires a few hardware components in order to function properly. In
   
     [Micro USB Charger Cable, [15 Ft] Durable Extra Long USB 2.0 Charge Cord Compatible for Android/Windows/Smartphones/Samsung/HTC/Motorola/Nokia/LG/Tablet and More(Blue)](https://www.amazon.com/dp/B07LCFGKGF?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 
-- A Vive Tracker package, which includes:
+- [A Vive Tracker package](https://www.amazon.com/HTC-Vive-Tracker-3-0-PC/dp/B08WFS5BMY/ref=sr_1_3?crid=MZ1DPQHBIZ0T&keywords=vive+tracker&qid=1654988920&sprefix=vive+tracke%2Caps%2C53&sr=8-3), which includes:
   
   - Tracker itself.
   
@@ -28,40 +36,25 @@ The project requires a few hardware components in order to function properly. In
   - A USB-C base
   
   - A USB-A Receiver
-    
-    [](https://www.amazon.com/HTC-Vive-Tracker-3-0-PC/dp/B08WFS5BMY/ref=sr_1_3?crid=MZ1DPQHBIZ0T&keywords=vive+tracker&qid=1654988920&sprefix=vive+tracke%2Caps%2C53&sr=8-3)
 
-- Lighthouses (base stations) for the Vive Tracker
+- [Lighthouses (base stations)](https://www.amazon.com/HTC-Vive-Base-Station-pc/dp/B01M01B92P/ref=sr_1_3?crid=R5424A66L3P5&keywords=vive+base+station&qid=1654988974&sprefix=vive+base+station%2Caps%2C52&sr=8-3) for the Vive Tracker
   
   - Either 1 or 2 base stations will work, but 2 base stations will result in more consistent performance.
     
-    [](https://www.amazon.com/HTC-Vive-Base-Station-pc/dp/B01M01B92P/ref=sr_1_3?crid=R5424A66L3P5&keywords=vive+base+station&qid=1654988974&sprefix=vive+base+station%2Caps%2C52&sr=8-3)
-    
-    [Base Station (Certified Pre-Owned) | VIVE United States](https://www.vive.com/us/accessory/base-station-certified/)
+# Install OTune
 
-# **Install OTune**
-
-## **Environment**
+## Environment
 
 1. Make sure you have a PC with Linux installed
    
    1. OTune is developed on Ubuntu 20.04 as of June 2022, but most other Linux distros should also work. 
 
-2. Install ROS Noetic (the latest version of ROS as of OTune development)
-   
-    [Wiki](https://wiki.ros.org/melodic/Installation/Ubuntu)
-   
+2. [Install ROS Noetic](https://wiki.ros.org/melodic/Installation/Ubuntu) (the latest version of ROS as of OTune development)
    - Newer version of ROS should also work, but it is not a guarantee.
 
-3. Create Your Catkin Workspace with this official guide
-   
-    [Wiki](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+3. Create Your Catkin Workspace with [this official guide](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
    
    - Since your Catkin Workspace may not be the same as the one used during the time of development, the path to your Catkin Workspace is represented by the following for the rest of the guide
-     
-     ```jsx
-     
-     ```
 
 4. Install Steam
 
@@ -71,11 +64,11 @@ The project requires a few hardware components in order to function properly. In
    
    1. For intuitive access to some config files later in this guide, installing a GUI script editor like VSCode is recommended, although you can still use editors like vim or nano. 
 
-## **Configure Linux**
+## Configure Linux and ROS
 
 1. Change SteamVR Settings
    
-   ```bash
+   ```
    code <YOUR_STEAM_PATH>/steamppps/common/SteamVR/resources/settings/default.vrsettings
    # In the section  "SteamVR"
    # Change Parameter "requireHMD" from "true" to "false"
@@ -85,7 +78,7 @@ The project requires a few hardware components in order to function properly. In
    
    - <YOUR_STEAM_PATH> is usually
      
-     ```jsx
+     ```
      ~/.local/share/Steam
      ```
      
@@ -109,14 +102,14 @@ The project requires a few hardware components in order to function properly. In
       
       1. Clone this to the src folder in your catkin workspace
          
-         ```bash
+         ```
          cd <YOUR_CATKIN_WS>/src
          git clone https://github.com/ros-drivers/rosserial.git
          ```
       
       2. Add otune_rosserial.launch to rosserial_vex_v5 launch folder
          
-         ```bash
+         ```
          cp <PROVIDED_OTUNE_ROSSERIAL_PATH>/rosserial_vex_v5/otune_rosserial.launch catkin_ws/src/rosserial/rosserial_vex_v5/launch
          ```
 
@@ -127,7 +120,7 @@ The project requires a few hardware components in order to function properly. In
 
 5. return to your main catkin workspace and compile these packages
    
-   ```bash
+   ```
    cd <YOUR_CATKIN_WS>/
    source devel/setup.bash
    catkin_make
@@ -135,14 +128,14 @@ The project requires a few hardware components in order to function properly. In
 
 6. Tips: every time a new instance of terminal is opened, if you want to run script or launch file on a complied package, run the following command
    
-   ```bash
+   ```
    cd <YOUR_CATKIN_WS>
    source devel/setup.bash
    ```
    
     Or you can add this to your .bashrc file so this is done automatically every time a new bash instance is started
    
-   ```bash
+   ```
    code ~/.bashrc
    # Add thie following line to the end of the bash file: 
    #
@@ -152,13 +145,13 @@ The project requires a few hardware components in order to function properly. In
    source ~/.bashrc
    ```
 
-## **Configure PROS project**
+## Configure PROS project
 
 1. Configure your user access on USB devices so that you can upload programs to the Brain in Linux as well as receive messages from it. 
    
    1. Add the current user to the group “dialout” and “tty”
       
-      ```bash
+      ```
       usermod -aG dialout ${USER}
       usermod -aG tty ${USER}
       ```
@@ -185,7 +178,7 @@ The project requires a few hardware components in order to function properly. In
 
 1. Open a new terminal and start a roscore
    
-   ```bash
+   ```
    roscore
    ```
 
@@ -205,7 +198,7 @@ The project requires a few hardware components in order to function properly. In
 
 5. Start the vive node in a new terminal
    
-   ```bash
+   ```
    cd ~/catkin_ws
    source devel/setup.bash
    roslaunch vive_ros vive.launch
@@ -217,7 +210,7 @@ The project requires a few hardware components in order to function properly. In
 
 7. Start the otune_rosserial node in a new terminal
    
-   ```bash
+   ```
    cd ~/catkin_ws
    source devel/setup.bash
    roslaunch rosserial_vex_v5 otune_rosserial.launch
@@ -228,7 +221,7 @@ The project requires a few hardware components in order to function properly. In
 
 8. Run the otune_listener.py script in the otune package
    
-   ```bash
+   ```
    rosrun otune otune_listener.py
    ```
    
@@ -245,7 +238,7 @@ The project requires a few hardware components in order to function properly. In
 
 - Use the following script to create a pros project.
   
-  ```jsx
+  ```
   catkin_ws/src/rosserial_vex_v5/src/scripts/genproject.sh <YOUR_PROJECT_DIRECTORY>
   ```
 
@@ -253,7 +246,7 @@ The project requires a few hardware components in order to function properly. In
 
 - Copy the following folders to the respective folders in the newly generated project
   
-  ```cpp
+  ```
   otune_rosserial/include/otune
   otune_rosserial/src/otune
   ```
@@ -268,7 +261,7 @@ The project requires a few hardware components in order to function properly. In
   
   - As of June 2022, PROS 3.3.3, this command is used to make the project into a template:
     
-    ```cpp
+    ```
     pros make template
     ```
 
