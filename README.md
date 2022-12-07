@@ -4,6 +4,9 @@ A wheel Robot Odometry Tuning CLI Toolkit for VEX Robotics.
 
 OTune is developed by Huaidian Daniel Hou ‘22 at the Haverford School as a Graduation project. The project is mentored by Mr. Myers and supported by the Haverford VEX Robotics Team 169. Some hardware for early development of this program is sponsored by Josiah Somani ‘22. 
 
+# Table of Contents
+- [OTune Hardware Requirements](#otune-hardware-requirements)
+
 # OTune Hardware Requirements
 
 The project requires a few hardware components in order to function properly. In the case that some hardware is missing, I would like to attach the list of hardware required by this program:
