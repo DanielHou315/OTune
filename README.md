@@ -24,8 +24,6 @@ The project requires a few hardware components in order to function properly. In
 - A Functioning robot brain with a working Micro USB port
 
 - A long Micro-USB to USB-A cable
-  
-    [Micro USB Charger Cable, [15 Ft] Durable Extra Long USB 2.0 Charge Cord Compatible for Android/Windows/Smartphones/Samsung/HTC/Motorola/Nokia/LG/Tablet and More(Blue)](https://www.amazon.com/dp/B07LCFGKGF?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 
 - [A Vive Tracker package](https://www.amazon.com/HTC-Vive-Tracker-3-0-PC/dp/B08WFS5BMY/ref=sr_1_3?crid=MZ1DPQHBIZ0T&keywords=vive+tracker&qid=1654988920&sprefix=vive+tracke%2Caps%2C53&sr=8-3), which includes:
   
